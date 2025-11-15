@@ -1,16 +1,17 @@
 /// <reference types="vite/client" />
-/// <reference types="./i18next.d.ts" />
-import './index.css';
+import ReactDOM from 'react-dom/client';
 import '@fontsource/roboto';
+import './index.css';
 import './app/config/i18n.config';
-import App from './app';
 import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+import { Toaster } from 'sonner';
+import { ModalProvider } from './components/providers/modal-provider';
+import Routes from './routes';
 
-const root = createRoot(document.getElementById('root') as HTMLElement);
-
-root.render(
-  <React.StrictMode>
-    <App />
+ReactDOM.createRoot(document.getElementById('root')!).render(
+ <React.StrictMode>
+      <Toaster richColors expand />
+      <ModalProvider />
+      <Routes />
   </React.StrictMode>,
 );
