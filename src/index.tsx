@@ -2,16 +2,22 @@
 import ReactDOM from 'react-dom/client';
 import '@fontsource/roboto';
 import './index.css';
-import './app/config/i18n.config';
 import * as React from 'react';
 import { Toaster } from 'sonner';
-import { ModalProvider } from './components/providers/modal-provider';
+import { ModalProvider } from './providers/modal-provider';
 import Routes from './routes';
+import AppProvider from './providers/app-provider';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
- <React.StrictMode>
-      <Toaster richColors expand />
-      <ModalProvider />
-      <Routes />
+  <React.StrictMode>
+    <AppProvider>
+      <Provider store={store}>
+        <Toaster richColors expand />
+        <ModalProvider />
+        <Routes />
+      </Provider>
+    </AppProvider>
   </React.StrictMode>,
 );

@@ -4,13 +4,12 @@ import React, { ElementRef, KeyboardEventHandler, forwardRef, useRef } from "rea
 import { Plus, X } from "lucide-react";
 import { toast } from "sonner";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
-import { useAppDispatch, useAppSelector } from "@store/index";
-import { selectCardsLoading } from "@store/selectors/card-selectors";
-import { createCardRequest } from "@store/slices/card-slice";
 import FormSubmit from "src/components/form/form-submit";
 import { Button } from "src/components/ui/button";
-import { useCreateCard } from "@hooks/lists/useLists";
 import { useQueryClient } from "@tanstack/react-query";
+import { useCreateCard } from "src/features/lists/useLists";
+import { useAppSelector } from "src/store";
+import { selectCardsLoading } from "src/store/selectors/card-selectors";
 
 interface IBoardListCardFormProps {
   listId: string;

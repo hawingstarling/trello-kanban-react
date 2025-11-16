@@ -1,13 +1,9 @@
-import { useAppDispatch, useAppSelector } from "@store/index";
-import { selectListsByBoardId, selectListsLoading } from "@store/selectors/list-selectors";
-import { updateCardOrderRequest } from "@store/slices/card-slice";
-import { fetchListsRequest, updateListOrderRequest } from "@store/slices/list-slice";
 import { useCallback, useEffect } from "react";
 import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
 import { toast } from "sonner";
 import ListItem from "../item";
 import ListForm from "../form";
-import { useLists, useUpdateCardOrder, useUpdateListOrder } from "@hooks/lists/useLists";
+import { useLists, useUpdateCardOrder, useUpdateListOrder } from "src/features/lists/useLists";
 
 interface IListContainerProps {
   boardId: string;

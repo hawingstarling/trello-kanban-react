@@ -2,11 +2,11 @@
 
 import { Draggable } from '@hello-pangea/dnd';
 import React from 'react';
-import { Card } from '@app/types/redux.type';
 import { Calendar1 } from 'lucide-react';
 import { AvatarGroup } from 'src/components/customized/avatar/avatar-13';
 import { Avatar, AvatarFallback, AvatarImage } from 'src/components/ui/avatar';
-import useCardModal from '@hooks/use-card-modal';
+import useCardModal from 'src/hooks/use-card-modal';
+import { Card } from 'src/types/redux.type';
 
 interface IBoardListCardItemProps {
   index: number;

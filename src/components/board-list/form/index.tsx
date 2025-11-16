@@ -2,13 +2,12 @@ import React, { ElementRef, useRef, useState } from "react";
 import { Plus, X } from "lucide-react";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
 import { toast } from "sonner";
-import { useAppDispatch, useAppSelector } from "@store/index";
-import { selectListsLoading } from "@store/selectors/list-selectors";
-import { createListRequest } from "@store/slices/list-slice";
 import FormSubmit from "src/components/form/form-submit";
 import { Button } from "src/components/ui/button";
 import ListWrapper from "../wrapper";
-import { useCreateList } from "@hooks/lists/useLists";
+import { useAppDispatch, useAppSelector } from "src/store";
+import { selectListsLoading } from "src/store/selectors/list-selectors";
+import { useCreateList } from "src/features/lists/useLists";
 
 interface IListFormProps {
   boardId: string;
@@ -22,7 +21,7 @@ const ListForm = ({ boardId }: IListFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const createListMutation = useCreateList();
-  
+
   const enableEditing = () => {
     setIsEditing(true);
     setTimeout(() => {

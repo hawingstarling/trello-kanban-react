@@ -40,11 +40,11 @@
       "title": "Gear up for Mt. Fuji!",
       "coverImage": null,
       "backgroundColor": null,
-      "order": 1,
+      "order": 0,
       "description": "",
-      "listId": "list-2",
+      "listId": "list-1",
       "createdAt": "2024-01-01T00:00:00.000Z",
-      "updatedAt": "2025-11-12T02:16:26.715Z"
+      "updatedAt": "2025-11-16T15:28:30.280Z"
     },
     {
       "id": "card-2",
@@ -66,7 +66,7 @@
       "description": "Log-in extra hours on company portal.\nRefer your personal Notion database for hours worked.",
       "listId": "list-2",
       "createdAt": "2024-01-01T00:00:00.000Z",
-      "updatedAt": "2025-11-12T02:16:26.714Z"
+      "updatedAt": "2025-11-16T15:28:30.282Z"
     },
     {
       "id": "card-4",
@@ -75,20 +75,20 @@
       "backgroundColor": null,
       "order": 1,
       "description": "Upcoming performance reviews: \n\n •Jacob ✓ \n •Aubrey✓\n •Devon (Postponed!)\n •KatieBassam\n •Gerald",
-      "listId": "list-1",
+      "listId": "list-2",
       "createdAt": "2024-01-01T00:00:00.000Z",
-      "updatedAt": "2025-11-12T02:46:28.177Z"
+      "updatedAt": "2025-11-16T15:28:30.282Z"
     },
     {
       "id": "card-6",
       "title": "Update Figma dev-team file by Monday!",
       "coverImage": null,
       "backgroundColor": null,
-      "order": 0,
+      "order": 1,
       "description": "Aubrey to edit pages 2 to 14, Katie to assist if needed.\n\nPs: Grant access to Katie.",
       "listId": "list-1",
       "createdAt": "2024-01-01T00:00:00.000Z",
-      "updatedAt": "2025-11-12T02:46:28.175Z"
+      "updatedAt": "2025-11-16T15:28:30.281Z"
     }
   ]
 }

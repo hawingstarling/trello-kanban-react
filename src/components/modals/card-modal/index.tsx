@@ -9,10 +9,9 @@ import React from 'react';
 // import CardModalActions from './actions';
 // import CardModalActivity from './activity';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from 'src/components/ui/dialog';
-import useCardModal from '@hooks/use-card-modal';
 import CardModalHeader from './header';
 import { Cover } from 'src/components/cover';
-import { useCard, useUpdateCardOrder } from '@hooks/lists/useLists';
+import useCardModal from 'src/hooks/use-card-modal';
 
 const CardModal = () => {
   const { isOpen, onClose, id } = useCardModal();
