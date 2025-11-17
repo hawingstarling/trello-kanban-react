@@ -2,6 +2,7 @@ import { List } from '@app/types/redux.type';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { cardApi, listApi } from 'src/lib/api';
+import { Card } from 'src/types/redux.type';
 
 export const useLists = (boardId: string) => {
   return useQuery({
@@ -144,6 +145,41 @@ export const useCreateCard = () => {
     },
     onError: (error) => {
       toast.error('Failed to create card');
+    },
+  });
+};
+
+export const useUpdateCard = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (updatedCard: Partial<Card> & { id: string }) =>
+      cardApi.updateCard(updatedCard),
+    onMutate: async ({ id, ...updates }) => {
+      await queryClient.cancelQueries({ queryKey: ['card', id] });
+
+      const previousCard = queryClient.getQueryData<Card>(['card', id]);
+
+      // Optimistic update
+      queryClient.setQueryData(['card', id], (old: Card | undefined) => ({
+        ...(old || {}),
+        ...updates,
+      }));
+
+      return { previousCard };
+    },
+    onError: (err, variables, context) => {
+      if (context?.previousCard) {
+        queryClient.setQueryData(['card', variables.id], context.previousCard);
+      }
+      toast.error('Failed to update card');
+    },
+    onSuccess: () => {
+      toast.success('Card updated successfully');
+    },
+    onSettled: (data, error, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['card', variables.id] });
+      queryClient.invalidateQueries({ queryKey: ['lists'] });
     },
   });
 };

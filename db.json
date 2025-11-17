@@ -37,14 +37,14 @@
   "cards": [
     {
       "id": "card-1",
-      "title": "Gear up for Mt. Fuji!",
-      "coverImage": null,
+      "title": "Gear up for Mt. Fuji!!",
+      "coverImage": "https://images.unsplash.com/photo-1557600280-9ceddf1a3cc3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1MjY4NzN8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTk2OTcyNDN8&ixlib=rb-4.0.3&q=85",
       "backgroundColor": null,
       "order": 0,
-      "description": "",
+      "description": "aaaaa",
       "listId": "list-1",
       "createdAt": "2024-01-01T00:00:00.000Z",
-      "updatedAt": "2025-11-16T15:28:30.280Z"
+      "updatedAt": "2025-11-17T03:58:30.177Z"
     },
     {
       "id": "card-2",
@@ -61,7 +61,7 @@
       "id": "card-3",
       "title": null,
       "coverImage": null,
-      "backgroundColor": null,
+      "backgroundColor": "#FFBDAE",
       "order": 0,
       "description": "Log-in extra hours on company portal.\nRefer your personal Notion database for hours worked.",
       "listId": "list-2",
@@ -72,7 +72,7 @@
       "id": "card-4",
       "title": null,
       "coverImage": null,
-      "backgroundColor": null,
+      "backgroundColor": "#FFEA79",
       "order": 1,
       "description": "Upcoming performance reviews: \n\n •Jacob ✓ \n •Aubrey✓\n •Devon (Postponed!)\n •KatieBassam\n •Gerald",
       "listId": "list-2",
@@ -89,6 +89,24 @@
       "listId": "list-1",
       "createdAt": "2024-01-01T00:00:00.000Z",
       "updatedAt": "2025-11-16T15:28:30.281Z"
+    },
+    {
+      "id": "4bd3",
+      "title": "Untitled",
+      "listId": "list-1",
+      "order": 1,
+      "description": "ABC",
+      "createdAt": "2025-11-17T03:30:14.267Z",
+      "updatedAt": "2025-11-17T03:30:35.356Z"
+    },
+    {
+      "id": "d984",
+      "title": "abc",
+      "listId": "list-1",
+      "order": 1,
+      "description": null,
+      "createdAt": "2025-11-17T04:03:21.510Z",
+      "updatedAt": "2025-11-17T04:03:21.510Z"
     }
   ]
 }

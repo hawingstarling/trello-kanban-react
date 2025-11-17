@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { ImageIcon, X } from 'lucide-react';
 import { useState } from 'react';
 import { Skeleton } from './ui/skeleton';
+import { useUnsplash } from 'src/hooks/use-unsplash';
 
 interface CoverImageProps {
   url?: string | null;
@@ -12,13 +13,13 @@ interface CoverImageProps {
 
 export const Cover = ({ url, onUpdate, onRemove }: CoverImageProps) => {
   const [imageUrl, setImageUrl] = useState(url || '');
+  const unsplash = useUnsplash();
 
   const handleChange = () => {
-    const newUrl = prompt('Enter new cover URL:', imageUrl);
-    if (newUrl && onUpdate) {
-      setImageUrl(newUrl);
-      onUpdate(newUrl);
-    }
+    unsplash.onOpen((url: string) => {
+      setImageUrl(url);
+      onUpdate?.(url);
+    });
   };
 
   const handleRemove = () => {

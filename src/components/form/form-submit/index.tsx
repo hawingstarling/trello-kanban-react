@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import React from "react";
 import { useFormStatus } from "react-dom";
 
@@ -13,14 +13,13 @@ interface IFormSubmitProps {
     | "outline"
     | "ghost"
     | "link"
-    | "primary";
 }
 
 const FormSubmit = ({
   children,
   disabled,
   className,
-  variant = "primary",
+  variant = "default",
 }: IFormSubmitProps) => {
   const { pending } = useFormStatus();
 

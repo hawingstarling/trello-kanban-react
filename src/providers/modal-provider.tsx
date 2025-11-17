@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import CardModal from '../components/modals/card-modal';
+import { UnsplashModal } from 'src/components/modals/unsplash-modal';
 
 
 export const ModalProvider = () => {
@@ -16,6 +17,7 @@ export const ModalProvider = () => {
   return (
     <>
       <CardModal />
+      <UnsplashModal />
     </>
   );
 };

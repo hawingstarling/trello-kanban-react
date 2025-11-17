@@ -2,7 +2,6 @@
 // import { updateCard } from '@/actions/update-card';
 // import FormInput from '@/components/form/form-input';
 import { Skeleton } from 'src/components/ui/skeleton';
-import { CardState } from '@app/types/redux.type';
 // import { useAction } from '@/hooks/use-action';
 // import { CardWithList } from '@/types';
 import { useQueryClient } from '@tanstack/react-query';
@@ -12,43 +11,30 @@ import React, { ElementRef, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import { Input } from 'src/components/ui/input';
 import FormInput from 'src/components/form/form-input';
+import { Card } from 'src/types/redux.type';
+import { useUpdateCard } from 'src/features/lists/useLists';
 
-interface ICardModalHeaderProps {
-  data: CardState;
+interface ICardModalTitleProps {
+  data: Card;
 }
-const CardModalHeader = ({ data }: ICardModalHeaderProps) => {
-  // const { execute } = useAction(updateCard, {
-  //   onSuccess: (data) => {
-  //     queryClient.invalidateQueries({
-  //       queryKey: ['card', data.id],
-  //     });
-  //     queryClient.invalidateQueries({
-  //       queryKey: ['card-logs', data.id],
-  //     });
-  //     toast.success(`Card renamed to "${data.title}".`);
-  //   },
-  //   onError: (error) => {
-  //     toast.error(error);
-  //   },
-  // });
+const CardModalTitle = ({ data }: ICardModalTitleProps) => {
+
   const inputRef = useRef<ElementRef<'input'>>(null);
-  // const [title, setTitle] = useState(data.title);
-  const [title, setTitle] = useState("Untitled");
-  const queryClient = useQueryClient();
-  // const params = useParams();
+  const [title, setTitle] = useState(data.title || "Untitled");
+  const { mutate: updateCard } = useUpdateCard()
 
   const onBlur = () => {
     inputRef.current?.form?.requestSubmit();
   };
 
   const onSubmit = (formData: FormData) => {
-    // const title = formData.get('title') as string;
-    // // const description = formData.get("description") as string;
+    const newTitle = formData.get('title') as string;
 
-    // if (title === data.title) {
-    //   return;
-    // }
-    // execute({ title, id: data.id });
+    if (newTitle === data.title) {
+      return;
+    }
+    updateCard({ id: data.id, title: newTitle })
+    setTitle(newTitle);
   };
   return (
     <div className="flex items-start gap-x-3 mb-6 w-full">
@@ -63,15 +49,12 @@ const CardModalHeader = ({ data }: ICardModalHeaderProps) => {
             className="font-semibold text-xl px-1 text-neutral-700 bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-input mb-0.5 truncate"
           />
         </form>
-        {/* <p className="text-sm text-muted-foreground">
-          in list <span className="underline">{data.list.title}</span>
-        </p> */}
       </div>
     </div>
   );
 };
 
-CardModalHeader.Skeleton = function CardModalHeaderSkeleton() {
+CardModalTitle.Skeleton = function CardModalTitleSkeleton() {
   return (
     <div className="flex items-start gap-x-3 mb-6">
       <Skeleton className="h-6 w-6 mt-1 bg-neutral-200" />
@@ -83,4 +66,4 @@ CardModalHeader.Skeleton = function CardModalHeaderSkeleton() {
   );
 };
 
-export default CardModalHeader;
+export default CardModalTitle;
